@@ -13,7 +13,7 @@ function init() {
 
   loadMainPrompts();
 }
-
+// Inqurier prompts
 async function loadMainPrompts() {
   const { choice } = await prompt([
     {
@@ -82,6 +82,7 @@ async function loadMainPrompts() {
   ]);
 
   // Call the appropriate function depending on what the user chose
+  // Long switch statement because there are plenty of options for a user to choose from
   switch (choice) {
     case "VIEW_EMPLOYEES":
       return viewEmployees();
@@ -113,6 +114,8 @@ async function loadMainPrompts() {
       return quit();
   }
 }
+
+//Functions that are called on in the switch statement are defined below
 
 async function viewEmployees() {
   const employees = await db.findAllEmployees();
